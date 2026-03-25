@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #030014;
+  --color-secondary: #0a0a1a;
+  --color-accent-cyan: #00f0ff;
+  --color-accent-purple: #bc13fe;
+  --color-accent-pink: #ff00ff;
+  --color-accent-blue: #0ea5e9;
+  --color-text-main: #f8fafc;
+  --color-text-muted: #94a3b8;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  --font-display: 'Orbitron', sans-serif;
+
+  --shadow-glow-cyan: 0 0 20px rgba(0, 240, 255, 0.4);
+  --shadow-glow-purple: 0 0 20px rgba(188, 19, 254, 0.4);
+  --shadow-glow-pink: 0 0 20px rgba(255, 0, 255, 0.4);
+}
+
+@layer base {
+  * {
+    cursor: none !important;
+  }
+
+  body {
+    @apply bg-primary text-text-main font-sans antialiased overflow-x-hidden;
+    /* Hide scrollbar */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  ::selection {
+    @apply bg-accent-cyan/30 text-white;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-slate-900/40 backdrop-blur-md border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+  }
+  .glass-premium {
+    @apply bg-white/[0.01] backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)];
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  }
+  .neon-border-cyan {
+    @apply border-accent-cyan/50 shadow-[0_0_15px_rgba(0,240,255,0.3)];
+  }
+  .neon-border-purple {
+    @apply border-accent-purple/50 shadow-[0_0_15px_rgba(188,19,254,0.3)];
+  }
+  .text-neon-cyan {
+    @apply text-accent-cyan drop-shadow-[0_0_8px_rgba(0,240,255,0.8)];
+  }
+  .text-neon-purple {
+    @apply text-accent-purple drop-shadow-[0_0_8px_rgba(188,19,254,0.8)];
+  }
+  .text-neon-pink {
+    @apply text-accent-pink drop-shadow-[0_0_8px_rgba(255,0,255,0.8)];
+  }
+}
+
+/* Custom Mesh Gradient Animations */
+@keyframes bg-pan {
+  0% { transform: scale(1.2) translate(0, 0); }
+  33% { transform: scale(1.3) translate(-5%, -5%); }
+  66% { transform: scale(1.2) translate(5%, 5%); }
+  100% { transform: scale(1.2) translate(0, 0); }
+}
+
+.mesh-bg-1 {
+  background: radial-gradient(circle at center, rgba(157, 78, 221, 0.15), transparent 50%);
+  animation: bg-pan 20s infinite alternate linear;
+}
+
+.mesh-bg-2 {
+  background: radial-gradient(circle at center, rgba(0, 240, 255, 0.1), transparent 50%);
+  animation: bg-pan 25s infinite alternate-reverse linear;
+}

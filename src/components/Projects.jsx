@@ -4,6 +4,10 @@ import { ExternalLink, Github, X } from 'lucide-react';
 import AnimatedText from './animations/AnimatedText';
 import Magnetic from './animations/Magnetic';
 
+import sheShieldImg from '../assets/she_shield.png';
+import cryptoMatrixImg from '../assets/crypto_matrix.png';
+import academicOsImg from '../assets/academic_os.png';
+
 const projects = [
   {
     id: 1,
@@ -12,7 +16,8 @@ const projects = [
     detailedDescription: 'She Shield is designed to provide immediate assistance in emergencies. It features a panic button, live location sharing with trusted contacts, and integration with local emergency services. Built with a focus on reliability and speed.',
     tech: ['React Native', 'Node.js', 'MongoDB', 'Socket.io'],
     color: 'from-accent-purple to-accent-pink',
-    shadow: 'shadow-glow-purple'
+    shadow: 'shadow-glow-purple',
+    image: sheShieldImg
   },
   {
     id: 2,
@@ -21,7 +26,8 @@ const projects = [
     detailedDescription: 'An immersive dashboard providing live market data, advanced charting, and portfolio tracking. Features include custom alerts, historical data analysis, and simulated trading using WebSockets for real-time updates.',
     tech: ['React', 'Chart.js', 'WebSockets', 'Tailwind'],
     color: 'from-accent-cyan to-accent-blue',
-    shadow: 'shadow-glow-cyan'
+    shadow: 'shadow-glow-cyan',
+    image: cryptoMatrixImg
   },
   {
     id: 3,
@@ -30,7 +36,8 @@ const projects = [
     detailedDescription: 'Streamlines academic operations by offering role-based dashboards for admins, teachers, and students. Includes features for attendance tracking, assignment submissions, and automated grade calculations.',
     tech: ['Flask', 'Python', 'SQLAlchemy', 'Postgres'],
     color: 'from-accent-blue to-accent-purple',
-    shadow: 'shadow-glow-purple'
+    shadow: 'shadow-glow-purple',
+    image: academicOsImg
   }
 ];
 
@@ -65,10 +72,16 @@ export default function Projects() {
               style={{ perspective: 1000 }}
               onClick={() => setSelectedProject(project)}
             >
-               <div className={`glass-premium h-full rounded-2xl p-8 border-white/5 overflow-hidden transition-all duration-500 hover:border-white/20 flex flex-col cursor-pointer ${project.shadow}`}>
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+               <div className={`glass-premium h-full rounded-2xl p-8 border-white/5 overflow-hidden transition-all duration-500 hover:border-white/20 flex flex-col cursor-pointer group/card ${project.shadow}`}>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10`} />
                   
-                  <div className="flex items-center gap-2 mb-6">
+                  {/* Thumbnail Image Container */}
+                  <div className="absolute inset-0 z-0 overflow-hidden opacity-30 group-hover:opacity-50 transition-all duration-500 group-hover:scale-110">
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0" />
+                    <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors" />
+                  </div>
+
+                  <div className="flex items-center gap-2 mb-6 relative z-10">
                     <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${project.color}`} />
                     <span className="text-[10px] font-display uppercase tracking-[0.3em] text-text-muted group-hover:text-white transition-colors">Project {index + 1}</span>
                   </div>
@@ -133,6 +146,11 @@ export default function Projects() {
 
                   <h3 className="text-4xl md:text-6xl font-display font-black text-white mb-2 leading-none tracking-tighter">{selectedProject.title}</h3>
                   <div className={`w-32 h-[1px] bg-gradient-to-r ${selectedProject.color} mb-8`} />
+
+                  {/* Modal Image */}
+                  <div className="w-full h-64 rounded-2xl overflow-hidden mb-8 border border-white/10">
+                     <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
+                  </div>
 
                   <p className="text-text-muted font-sans text-lg mb-8 leading-relaxed">
                      {selectedProject.detailedDescription}

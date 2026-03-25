@@ -31,7 +31,7 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Academic OS',
+    title: 'SmartAcad',
     description: 'A centralized portal for managing courses, grades, and student-teacher interactions.',
     detailedDescription: 'Streamlines academic operations by offering role-based dashboards for admins, teachers, and students. Includes features for attendance tracking, assignment submissions, and automated grade calculations.',
     tech: ['Flask', 'Python', 'SQLAlchemy', 'Postgres'],

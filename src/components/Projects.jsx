@@ -112,9 +112,33 @@ export default function Projects() {
                       ))}
                     </div>
 
-                    <div className="mt-6 flex items-center justify-between text-[10px] font-display uppercase tracking-[0.4em] text-accent-cyan opacity-40 group-hover/card:opacity-100 transition-opacity">
-                        <span>Initialize Protocol</span>
-                        <span className="group-hover/card:translate-x-2 transition-transform duration-300">→</span>
+                    {/* Direct Action Buttons */}
+                    <div className="mt-6 flex items-center gap-3">
+                        <Magnetic>
+                          <a 
+                            href="#" 
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              e.preventDefault();
+                            }}
+                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-accent-cyan text-primary hover:bg-white transition-all font-display font-bold uppercase tracking-wider text-[8px] rounded-full shadow-glow-cyan/20"
+                          >
+                            <ExternalLink size={12} />
+                            Live
+                          </a>
+                        </Magnetic>
+                        <Magnetic>
+                          <a 
+                            href={project.repo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 glass-premium hover:bg-white/10 transition-all font-display font-bold uppercase tracking-wider text-[8px] text-white rounded-full border-white/10"
+                          >
+                            <Github size={12} />
+                            Source
+                          </a>
+                        </Magnetic>
                     </div>
                   </div>
                </div>

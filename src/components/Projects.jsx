@@ -17,7 +17,8 @@ const projects = [
     tech: ['React Native', 'Node.js', 'MongoDB', 'Socket.io'],
     color: 'from-accent-purple to-accent-pink',
     shadow: 'shadow-glow-purple',
-    image: sheShieldImg
+    image: sheShieldImg,
+    repo: 'https://github.com/03Vin/SheShield-'
   },
   {
     id: 2,
@@ -27,7 +28,8 @@ const projects = [
     tech: ['React', 'Chart.js', 'WebSockets', 'Tailwind'],
     color: 'from-accent-cyan to-accent-blue',
     shadow: 'shadow-glow-cyan',
-    image: cryptoMatrixImg
+    image: cryptoMatrixImg,
+    repo: 'https://github.com/03Vin/Crypto_Trading_Dashboard'
   },
   {
     id: 3,
@@ -37,7 +39,8 @@ const projects = [
     tech: ['Flask', 'Python', 'SQLAlchemy', 'Postgres'],
     color: 'from-accent-blue to-accent-purple',
     shadow: 'shadow-glow-purple',
-    image: academicOsImg
+    image: academicOsImg,
+    repo: 'https://github.com/03Vin/SmartAcad'
   }
 ];
 
@@ -188,7 +191,12 @@ export default function Projects() {
                        </a>
                     </Magnetic>
                     <Magnetic>
-                       <a href="#" onClick={(e) => e.preventDefault()} className="flex items-center gap-2 px-8 py-3 glass-premium hover:bg-white/10 transition-colors font-display font-bold uppercase tracking-wider text-[10px] text-white rounded-full border-white/10">
+                       <a 
+                         href={selectedProject.repo} 
+                         target="_blank" 
+                         rel="noopener noreferrer" 
+                         className="flex items-center gap-2 px-8 py-3 glass-premium hover:bg-white/10 transition-colors font-display font-bold uppercase tracking-wider text-[10px] text-white rounded-full border-white/10"
+                       >
                           <Github size={16} />
                           Source protocol
                        </a>

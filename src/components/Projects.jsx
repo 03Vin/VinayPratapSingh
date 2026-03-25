@@ -72,34 +72,47 @@ export default function Projects() {
               style={{ perspective: 1000 }}
               onClick={() => setSelectedProject(project)}
             >
-               <div className={`glass-premium h-full rounded-2xl p-8 border-white/5 overflow-hidden transition-all duration-500 hover:border-white/20 flex flex-col cursor-pointer group/card ${project.shadow}`}>
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10`} />
-                  
+               <div className={`glass-premium h-full rounded-2xl p-6 border-white/5 overflow-hidden transition-all duration-500 hover:border-white/20 flex flex-col cursor-pointer group/card ${project.shadow}`}>
                   {/* Thumbnail Image Container */}
-                  <div className="absolute inset-0 z-0 overflow-hidden opacity-30 group-hover:opacity-50 transition-all duration-500 group-hover:scale-110">
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0" />
-                    <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors" />
+                  <div className="relative h-56 -mx-6 -mt-6 mb-6 overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-60 group-hover/card:opacity-40 transition-opacity" />
+                    
+                    {/* Floating Tech Badges on Image */}
+                    <div className="absolute top-4 right-4 flex flex-wrap gap-2 justify-end opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 translate-y-[-10px] group-hover/card:translate-y-0">
+                      {project.tech.slice(0, 2).map(t => (
+                        <span key={t} className="text-[8px] font-mono px-2 py-1 rounded bg-black/60 backdrop-blur-md border border-white/10 text-accent-cyan uppercase tracking-tighter">
+                           {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="flex items-center gap-2 mb-6 relative z-10">
-                    <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${project.color}`} />
-                    <span className="text-[10px] font-display uppercase tracking-[0.3em] text-text-muted group-hover:text-white transition-colors">Project {index + 1}</span>
-                  </div>
+                  <div className="relative z-10 flex flex-col flex-1">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${project.color} ${project.shadow}`} />
+                      <span className="text-[10px] font-display uppercase tracking-[0.3em] text-text-muted group-hover/card:text-white transition-colors">Project {index + 1}</span>
+                    </div>
 
-                  <h3 className="text-3xl font-display font-black text-white mb-4 group-hover:text-neon-cyan transition-colors">{project.title}</h3>
-                  <p className="text-text-muted font-sans text-sm mb-8 leading-relaxed line-clamp-3">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {project.tech.map(t => (
-                      <span key={t} className="text-[9px] font-mono px-2 py-1 rounded bg-white/5 border border-white/10 text-text-muted">
-                         {t}
-                      </span>
-                    ))}
-                  </div>
+                    <h3 className="text-3xl font-display font-black text-white mb-3 group-hover/card:text-neon-cyan transition-colors leading-none">{project.title}</h3>
+                    <p className="text-text-muted font-sans text-sm mb-6 leading-relaxed line-clamp-2 group-hover/card:text-white/80 transition-colors">{project.description}</p>
+                    
+                    <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-white/5">
+                      {project.tech.map(t => (
+                        <span key={t} className="text-[8px] font-mono px-2 py-1 rounded bg-white/5 border border-white/5 text-text-muted/60 group-hover/card:text-text-muted transition-colors">
+                           {t}
+                        </span>
+                      ))}
+                    </div>
 
-                  <div className="mt-8 flex items-center justify-between text-[10px] font-display uppercase tracking-widest text-accent-cyan opacity-50 group-hover:opacity-100 transition-opacity">
-                      <span>Decrypt Details</span>
-                      <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
+                    <div className="mt-6 flex items-center justify-between text-[10px] font-display uppercase tracking-[0.4em] text-accent-cyan opacity-40 group-hover/card:opacity-100 transition-opacity">
+                        <span>Initialize Protocol</span>
+                        <span className="group-hover/card:translate-x-2 transition-transform duration-300">→</span>
+                    </div>
                   </div>
                </div>
 

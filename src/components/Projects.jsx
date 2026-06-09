@@ -7,6 +7,7 @@ import Magnetic from './animations/Magnetic';
 import sheShieldImg from '../assets/she_shield.png';
 import cryptoMatrixImg from '../assets/crypto_matrix.png';
 import academicOsImg from '../assets/academic_os.png';
+import smartBloodImg from '../assets/smart_blood.png';
 
 const projects = [
   {
@@ -41,6 +42,17 @@ const projects = [
     shadow: 'shadow-glow-purple',
     image: academicOsImg,
     repo: 'https://github.com/03Vin/SmartAcad'
+  },
+  {
+    id: 4,
+    title: 'Smart Blood Connect',
+    description: 'Next-generation real-time blood supply management & emergency SOS dispatch ecosystem.',
+    detailedDescription: 'Smart Blood Connect (SBC) is a startup-grade digital health ecosystem that bridges critical gaps in regional blood supply chains and donor mobilization. It features IoT temperature/vibration cold-chain telemetry, predictive AI platelet shelf-life analytics, GIS ambulance & drone route simulators, an AI Health Report Analyzer, and a paramedic Emergency NFC SOS scanner simulator.',
+    tech: ['Laravel', 'PHP', 'Tailwind CSS', 'SQLite', 'JS', 'SVGs'],
+    color: 'from-red-500 to-accent-pink',
+    shadow: 'shadow-glow-red',
+    image: smartBloodImg,
+    repo: 'https://github.com/03Vin/Smart-Blood'
   }
 ];
 

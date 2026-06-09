@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import AnimatedText from './animations/AnimatedText';
 import profileImg from '../assets/Profile.jpeg';
+// Force Vercel build after profile picture update
+
 
 export default function About() {
   return (

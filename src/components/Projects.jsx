@@ -20,6 +20,7 @@ const projects = [
     color: 'from-accent-purple to-accent-pink',
     shadow: 'shadow-glow-purple',
     image: sheShieldImg,
+    live: 'https://sheshield-production.up.railway.app/',
     repo: 'https://github.com/03Vin/SheShield-'
   },
   {
@@ -140,12 +141,16 @@ export default function Projects() {
                     <div className="mt-6 flex items-center gap-3">
                         <Magnetic>
                           <a 
-                            href="#" 
+                            href={project.live || '#'} 
+                            target={project.live ? "_blank" : undefined}
+                            rel={project.live ? "noopener noreferrer" : undefined}
                             onClick={(e) => {
                               e.stopPropagation();
-                              e.preventDefault();
+                              if (!project.live) {
+                                e.preventDefault();
+                              }
                             }}
-                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-accent-cyan text-primary hover:bg-white transition-all font-display font-bold uppercase tracking-wider text-[8px] rounded-full shadow-glow-cyan/20"
+                            className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-accent-cyan text-primary hover:bg-white transition-all font-display font-bold uppercase tracking-wider text-[8px] rounded-full shadow-glow-cyan/20 ${!project.live ? 'opacity-50 cursor-not-allowed' : ''}`}
                           >
                             <ExternalLink size={12} />
                             Live
@@ -232,12 +237,23 @@ export default function Projects() {
                   </div>
 
                   <div className="flex flex-wrap gap-4">
-                    <Magnetic>
-                       <a href="#" onClick={(e) => e.preventDefault()} className="flex items-center gap-2 px-8 py-3 bg-accent-cyan text-primary hover:bg-white transition-colors font-display font-bold uppercase tracking-wider text-[10px] rounded-full">
-                          <ExternalLink size={16} />
-                          Initialize deployment
-                       </a>
-                    </Magnetic>
+                     <Magnetic>
+                        <a 
+                          href={selectedProject.live || '#'} 
+                          target={selectedProject.live ? "_blank" : undefined}
+                          rel={selectedProject.live ? "noopener noreferrer" : undefined}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (!selectedProject.live) {
+                              e.preventDefault();
+                            }
+                          }}
+                          className={`flex items-center gap-2 px-8 py-3 bg-accent-cyan text-primary hover:bg-white transition-colors font-display font-bold uppercase tracking-wider text-[10px] rounded-full ${!selectedProject.live ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        >
+                           <ExternalLink size={16} />
+                           {selectedProject.live ? 'Live Protocol' : 'Initialize deployment'}
+                        </a>
+                     </Magnetic>
                     <Magnetic>
                        <a 
                          href={selectedProject.repo} 

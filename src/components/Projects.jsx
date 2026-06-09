@@ -8,6 +8,7 @@ import sheShieldImg from '../assets/she_shield.png';
 import cryptoMatrixImg from '../assets/crypto_matrix.png';
 import academicOsImg from '../assets/academic_os.png';
 import smartBloodImg from '../assets/smart_blood.png';
+import lumenImg from '../assets/lumen.png';
 
 const projects = [
   {
@@ -53,6 +54,17 @@ const projects = [
     shadow: 'shadow-glow-red',
     image: smartBloodImg,
     repo: 'https://github.com/03Vin/Smart-Blood'
+  },
+  {
+    id: 5,
+    title: 'LUMEN',
+    description: 'A design-first, anonymous digital mental wellness sanctuary built on the MERN stack.',
+    detailedDescription: 'Lumen combines active kinetic anxiety release mechanics, real-time crisis de-escalation safety nets, and anonymous peer-to-peer connection—where design is the therapy. Key features include kinetic CSS-based particle/wave thought dissolution animations, a Smart Pause corridor redirect with circular breathing guides and Web Audio tones, an interactive 3D envelope writing desk with custom wax reactions, and a Gemini-powered Aura AI companion with canvas visualizers.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'Gemini AI', 'Web Audio'],
+    color: 'from-accent-cyan to-accent-purple',
+    shadow: 'shadow-glow-purple',
+    image: lumenImg,
+    repo: 'https://github.com/03Vin/LUMEN'
   }
 ];
 
